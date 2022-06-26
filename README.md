@@ -27,9 +27,8 @@ You can read more details in our paper: `Contextualized Table Extraction Dataset
 
 ### A couple of examples
 <p>
-  <img src="imgs/annotations_00.jpg" width="300" />
-  <img src="imgs/annotations_00_table.jpg" width="300" /> 
-  <img src="imgs/annotations_00_cells.jpg" width="300" />
+  <img src="imgs/objects.png" width="300" />
+  <img src="imgs/tokens.png" width="300" />
 </p>
 
 [^1]: Xu Zhong et al., PubLayNet: largest dataset ever for document layout analysis, ICDAR 2019.

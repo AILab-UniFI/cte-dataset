@@ -272,10 +272,10 @@ def get_tokens(page, annotations, objects):
         
         # counting 'other' words to group them into objects later
         if ref == -1 and not prev:
-            start = w
+            start = tid
             prev = True
-        elif ref != -1 and prev:
-            other_words.append([start, w])
+        elif (ref != -1 and prev) or (w == len(words) - 1 and ref == -1):
+            other_words.append([start, tid-1])
             prev = False
 
         tokens.append([tid, bbox, word[4], label, ref])
