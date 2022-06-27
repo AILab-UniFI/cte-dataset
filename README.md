@@ -1,14 +1,16 @@
 # Contextualized Table Extraction Dataset
 - [Contextualized Table Extraction Dataset](#contextualized-table-extraction-dataset)
   - [The CTE Dataset](#the-cte-dataset)
-    - [PDF data](#pdf-data)
-  - [Init](#init)
+  - [Generate CTE annotations](#generate-cte-annotations)
   - [Project Tree](#project-tree)
   - [Config File Format](#config-file-format)
   - [Cite this project](#cite-this-project)
 
-We have build a dataset for Contextualized Table Extraction fusing two well known datasets:
-- [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/)[^1], a dataset for Document Layout Analysis with 5 different labeld regions
+## The CTE Dataset
+<img src="imgs/data.png" width="1000" />
+
+We have build new annotations for the defined Contextualized Table Extraction task, fusing two well known datasets:
+- [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/)[^1], a dataset for Document Layout Analysis with 5 different labeld regions;
 - [PubTables-1M](https://msropendata.com/datasets/505fcbe3-1383-42b1-913a-f651b8b712d3)[^2], a dataset to perform Table Detection, Table Structure Recognition and Functional Analysis.
 
 Tables are really important sources of information for research purposes, and giving them a context (instead of just focusing on them) can help in their extraction. We have been inspired by mainly two works:
@@ -17,17 +19,9 @@ Tables are really important sources of information for research purposes, and gi
 
 You can read more details in our paper: `Contextualized Table Extraction Dataset`
 
----
-
-## The CTE Dataset
-<img src="imgs/data.png" width="1000" />
-<img src="imgs/table.png" width="1000" />
-
-### PDF data
+**PDF data**
 We do not own the copyright of the original data and we cannot redistribute them.
-If you need the data, download them directly from their sites.
-
----
+The PDF files can be downloaded from [here](https://github.com/ibm-aur-nlp/PubLayNet).
 
 [^1]: Xu Zhong et al., PubLayNet: largest dataset ever for document layout analysis, ICDAR 2019.
 [^2]: B. Smock et al., "Towards a universal dataset and metrics for training and evaluating table extraction models", arXiv, November 2021.
@@ -36,7 +30,7 @@ If you need the data, download them directly from their sites.
 
 ---
 
-## Init
+## Generate CTE annotations
 Run in your environment:
 ```
 pip install -e .
@@ -47,6 +41,12 @@ After that, download:
 1. PubLayNet annotations from [here](https://github.com/ibm-aur-nlp/PubLayNet) 
 2. PubTables-1M-PDF_Annotations_JSON from [here](https://github.com/microsoft/table-transformer)
 And collocate them as described in Project Tree section.
+
+Finally, to generate the annotations, run:
+```
+python src/generate_annotations.py
+```
+You will find train, val and test annotation json files in the data/merged subfolder.
 
 <!--(Then, download annotations and baselines from `here`.) -->
 
@@ -63,11 +63,9 @@ And collocate them as described in Project Tree section.
   │   ├── publaynet/ - train, val, test jsons and PubLayNet_PDF folder
   │   ├── pubtables-1m/ - PubTables-1M-PDF_Annotations_JSON folder
   │   └── merged/
-  │       ├── region_annotations.json - bigger regions of the page in terms of bounding boxes
-  │       └── token_annotations.json - token bounding boxes, textual content and links.
-  │
-  ├── baselines/ - weights of baseline models
-  ├── imgs / - examples
+  │       ├── test.json - CTE annotations (as described in config file format section)
+  │       ├── train.json - CTE annotations (as described in config file format section)
+  │       └── val.json - (CTE annotations as described in config file format section)
   ```
 
 ## Config File Format
