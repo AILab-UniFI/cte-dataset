@@ -7,7 +7,7 @@
   - [Cite this project](#cite-this-project)
 
 ## The CTE Dataset
-<img src="imgs/data.png" width="1000" />
+<img src="data.png" width="1000" />
 
 We have build new annotations for the defined Contextualized Table Extraction task, fusing two well known datasets:
 - [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/)[^1], a dataset for Document Layout Analysis with 5 different labeld regions;
@@ -19,7 +19,7 @@ Tables are really important sources of information for research purposes, and gi
 
 You can read more details in our paper: `Contextualized Table Extraction Dataset`
 
-**PDF data**
+**About the PDF data:**
 We do not own the copyright of the original data and we cannot redistribute them.
 The PDF files can be downloaded from [here](https://github.com/ibm-aur-nlp/PubLayNet).
 
