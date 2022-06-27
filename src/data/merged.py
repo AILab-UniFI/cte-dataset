@@ -204,8 +204,10 @@ def parse_pdf(refactored_papers, split):
             objs = get_objects(annotations)
             tkns = get_tokens(all_pdf / page, annotations, objs)
             if tkns != None:
+                lnks = get_links(tkns, annotations)
                 objects[page] = objs
                 tokens[page] = tkns
+                links[page] = lnks
 
     return objects, tokens, links
 
@@ -257,6 +259,7 @@ def get_tokens(page, annotations, objects):
             tid += 1
     
     prev = False # used for class 'others'
+    prev_y = words[0][3]/SCALE_FACTOR
     other_words = [] # used for class 'others'
     for w, word in enumerate(words):
         
@@ -274,11 +277,18 @@ def get_tokens(page, annotations, objects):
         if ref == -1 and not prev:
             start = tid
             prev = True
-        elif (ref != -1 and prev) or (w == len(words) - 1 and ref == -1):
-            other_words.append([start, tid-1])
+        elif ref == -1 and (bbox[3] - prev_y) > 50:
+            other_words.append([start, tid])
+            start=tid
+        elif (ref != -1 and prev):
+            other_words.append([start, tid])
+            prev = False
+        elif (w == len(words) - 1 and ref == -1):
+            other_words.append([start, tid+1])
             prev = False
 
         tokens.append([tid, bbox, word[4], label, ref])
+        prev_y = bbox[3]
         tid += 1
 
     # add class 'other' to objects
@@ -303,3 +313,19 @@ def get_objects(annotations):
         else:
             objects.append([num, ann[0], ann[1]])
     return objects
+
+def get_links(tkns, annotations):
+    links = []
+    lid = 0
+    for a in annotations:
+        if a[2] in ['TABLE_GCELL', 'TABLE_COL', 'TABLE_ROW']:
+            token_ids = []
+            for t in tkns:
+                centerNode = center(t[1])
+                rectAnn = a[0]
+                if (centerNode[0] > rectAnn[0] and centerNode[0] < rectAnn[2] and centerNode[1] > rectAnn[1] and centerNode[1] < rectAnn[3]):
+                    token_ids.append(t[0])
+            if token_ids:
+                links.append([lid, a[1], token_ids])
+                lid += 1
+    return links

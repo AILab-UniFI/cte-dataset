@@ -26,10 +26,7 @@ You can read more details in our paper: `Contextualized Table Extraction Dataset
 ---
 
 ### A couple of examples
-<p>
-  <img src="imgs/objects.png" width="300" />
-  <img src="imgs/tokens.png" width="300" />
-</p>
+<img src="imgs/data.png" width="1000" />
 
 [^1]: Xu Zhong et al., PubLayNet: largest dataset ever for document layout analysis, ICDAR 2019.
 [^2]: B. Smock et al., "Towards a universal dataset and metrics for training and evaluating table extraction models", arXiv, November 2021.
@@ -81,18 +78,21 @@ Config files are in `.json` format. Example:
 ```
   "objects": 
       {
-        "PMC3226315_00001.pdf": 
+        "PMC#######_000##.pdf": 
           [
-            [0, [140, 718, 808, 779], 1],
+            [0, [157, 241, 807, 738], 1],
+            [1, [157, 741, 807, 1238], 1],
             ...
           ]
         ...
       }
   "tokens":
       {
-        "PMC3226315_00001.pdf":
+        "PMC#######_000##.pdf":
           [
-            [],
+            [0, [179, 241, 344, 271], 'Unfortunately,', 1, 0],
+            [1, [354, 241, 412, 271], 'these', 1, 0],
+            [2, [423, 241, 604, 271], 'quality-adjusted', 1, 0],
             ...
           ]
         ...
@@ -113,7 +113,7 @@ Each token has these information:
 Each link has these information:
 - link id
 - class id
-- token is (list of tokens linked together)
+- token ids (list of tokens linked together)
 
 ## Cite this project
 If you want to use our dataset in your project[^1], please cite us:

@@ -67,7 +67,8 @@ if __name__ == "__main__":
         refactored_dict = {
             "categories": [{'id':category.value, 'name': category.name, 'color': categories_colors[category.value] } for category in Categories_names],
             "objects": objects,
-            "tokens": tokens
+            "tokens": tokens,
+            "links": links
         }
 
         with open(final_annotations, "w") as f:
