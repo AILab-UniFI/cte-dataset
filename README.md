@@ -1,9 +1,8 @@
 # Contextualized Table Extraction Dataset
 - [Contextualized Table Extraction Dataset](#contextualized-table-extraction-dataset)
-    - [Dataset Numbers](#dataset-numbers)
-    - [A couple of examples](#a-couple-of-examples)
+  - [The CTE Dataset](#the-cte-dataset)
+    - [PDF data](#pdf-data)
   - [Init](#init)
-  - [PDF data](#pdf-data)
   - [Project Tree](#project-tree)
   - [Config File Format](#config-file-format)
   - [Cite this project](#cite-this-project)
@@ -20,13 +19,15 @@ You can read more details in our paper: `Contextualized Table Extraction Dataset
 
 ---
 
-### Dataset Numbers
+## The CTE Dataset
+<img src="imgs/data.png" width="1000" />
 <img src="imgs/table.png" width="1000" />
 
----
+### PDF data
+We do not own the copyright of the original data and we cannot redistribute them.
+If you need the data, download them directly from their sites.
 
-### A couple of examples
-<img src="imgs/data.png" width="1000" />
+---
 
 [^1]: Xu Zhong et al., PubLayNet: largest dataset ever for document layout analysis, ICDAR 2019.
 [^2]: B. Smock et al., "Towards a universal dataset and metrics for training and evaluating table extraction models", arXiv, November 2021.
@@ -48,10 +49,6 @@ After that, download:
 And collocate them as described in Project Tree section.
 
 <!--(Then, download annotations and baselines from `here`.) -->
-
-## PDF data
-We do not own the copyright of the original data and we cannot redistribute them.
-If you need the data, download them directly from their sites.
 
 ## Project Tree
 ```
@@ -85,7 +82,7 @@ Config files are in `.json` format. Example:
             ...
           ]
         ...
-      }
+      },
   "tokens":
       {
         "PMC#######_000##.pdf":
@@ -93,6 +90,17 @@ Config files are in `.json` format. Example:
             [0, [179, 241, 344, 271], 'Unfortunately,', 1, 0],
             [1, [354, 241, 412, 271], 'these', 1, 0],
             [2, [423, 241, 604, 271], 'quality-adjusted', 1, 0],
+            ...
+          ]
+        ...
+      }
+  "links":
+      {
+        "PMC#######_000##.pdf":
+          [
+            ...,
+            [9, 11, [31, 41]],
+            [10, 12, [22, 23, 24, 25, 26, 27, 28, 29, 30, 31]],
             ...
           ]
         ...
