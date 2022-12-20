@@ -15,6 +15,7 @@ def create_folder(folder_path : str):
     """
     if not os.path.exists(folder_path):
         os.mkdir(folder_path)
+    return
 
 def project_tree():
     create_folder(DATA)

@@ -7,7 +7,7 @@
   - [Cite this project](#cite-this-project)
 
 ## The CTE Dataset
-<img src="data.png" width="1000" />
+<img src="annotations.png" width="1000" />
 
 We have build new annotations for the defined Contextualized Table Extraction task, fusing two well known datasets:
 - [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/)[^1], a dataset for Document Layout Analysis with 5 different labeld regions;
@@ -124,9 +124,12 @@ Each link has these information:
 ## Cite this project
 If you want to use our dataset in your project[^1], please cite us:
 ```
-@inproceedings{neumann-etal-2019-scispacy,
+@inproceedings{cte-2022,
     title = "CTE: Contextualized Table Extraction Dataset",
-    author = "Gemelli, Andrea  and Vivoli, Emanuele",
-    abstract = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    author = "Gemelli, Andrea  and Vivoli, Emanuele and Marinai, Simone",
+    year = "2022",
+    volume = "",
+    abstract = "Important information within a document are usually organized in tables, helping the reader with information retrieval and comparison. Most benchmark datasets support either document layout analysis or table understanding, but lack in providing data to apply both tasks in a unified way. We define the task of Contextualized Table Extraction (CTE), that aims to extract and structure tables considering the textual context of the document. The dataset comprises 75k fully annotated pages of scientific papers, with more than 35k tables and 13 classes. Data are gathered from PubMed Central, merging PubTables-1M and PubLayNet annotations in support of CTE, with the addition of new classes. Our proposed annotations can be used to develop end-to-end pipelines for various tasks, including document layout analysis and table detection, structure recognition and functional analysis. We formally define CTE and evaluation metrics, showing which subtasks can be tackle in its support, describing advantages, limitations and future works of this collection of data. Annotations and code will be accessible at https://github.com/AILab-UniFI/cte-dataset",
+    conference
 }
 ```
