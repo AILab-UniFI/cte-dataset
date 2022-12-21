@@ -17,7 +17,7 @@ Tables are really important sources of information for research purposes, and gi
 - [DocBank](https://doc-analysis.github.io/docbank-page/index.html)[^3], to reformulate the problem as a token-classification task
 - AxCell[^4], to give table a context also for comparable resarch porpuses
 
-You can read more details in our paper: `Contextualized Table Extraction Dataset`
+You can read more details in our paper: `CTE: Contextualized Table Extraction Dataset` (under review)
 
 **About the PDF data:**
 We do not own the copyright of the original data and we cannot redistribute them.
