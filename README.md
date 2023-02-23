@@ -124,12 +124,15 @@ Each link has these information:
 ## Cite this project
 If you want to use our dataset in your project[^1], please cite us:
 ```
-@inproceedings{cte-2022,
-    title = "CTE: Contextualized Table Extraction Dataset",
-    author = "Gemelli, Andrea  and Vivoli, Emanuele and Marinai, Simone",
-    year = "2022",
-    volume = "",
-    abstract = "Important information within a document are usually organized in tables, helping the reader with information retrieval and comparison. Most benchmark datasets support either document layout analysis or table understanding, but lack in providing data to apply both tasks in a unified way. We define the task of Contextualized Table Extraction (CTE), that aims to extract and structure tables considering the textual context of the document. The dataset comprises 75k fully annotated pages of scientific papers, with more than 35k tables and 13 classes. Data are gathered from PubMed Central, merging PubTables-1M and PubLayNet annotations in support of CTE, with the addition of new classes. Our proposed annotations can be used to develop end-to-end pipelines for various tasks, including document layout analysis and table detection, structure recognition and functional analysis. We formally define CTE and evaluation metrics, showing which subtasks can be tackle in its support, describing advantages, limitations and future works of this collection of data. Annotations and code will be accessible at https://github.com/AILab-UniFI/cte-dataset",
-    conference
+@misc{https://doi.org/10.48550/arxiv.2302.01451,
+  doi = {10.48550/ARXIV.2302.01451},
+  url = {https://arxiv.org/abs/2302.01451},
+  author = {Gemelli, Andrea and Vivoli, Emanuele and Marinai, Simone},
+  keywords = {Computation and Language (cs.CL), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {CTE: A Dataset for Contextualized Table Extraction},
+  publisher = {arXiv},
+  year = {2023},
+  copyright = {Creative Commons Attribution Share Alike 4.0 International}
 }
+
 ```
